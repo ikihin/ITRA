@@ -1,44 +1,35 @@
-# Superteam VN — submission draft (SEN)
+# SEN — Superteam VN submission (matured)
 
-## Title
-SEN — Cross-border USDC payout for Vietnam freelancers & agencies
+**Live:** https://ikihin.github.io/SenPay/  
+**Repo:** https://github.com/ikihin/SenPay
 
 ## One-liner
-Clients pay in USDC on Solana; freelancers and agencies in Vietnam keep more, faster — without replacing MoMo/VNPay for domestic payments.
 
-## Eligibility
-- [ ] I am a Vietnamese citizen or Vietnam-based resident
-- [ ] I can provide ID / residence proof if selected
+SEN is the middle-mile settlement rail for Vietnam freelancers and agencies exporting services: clients pay USDC on Solana; teams settle in minutes with on-chain receipts — without replacing MoMo/VNPay for domestic VND.
 
-## Links
-- Pitch deck (2 pages): `deck/SEN-Pitch-Deck-2pages.pptx`
-- Prototype: open `prototype/index.html` (or hosted URL: ________)
+## 1. The business today
 
-## Cover the four required points
+Vietnam freelancers and small digital agencies already sell to US/EU/SG/AU clients. Money still moves through marketplaces, Payoneer/Wise, or banks. In the $200–$5,000 invoice band, stacked fees and multi-day delays routinely erase 5–10% of revenue — and agencies feel it every cycle when splitting to teammates.
 
-### 1. The business today
-Vietnam freelancers and small agencies export services to US/EU/SG/AU clients. Money still routes through Upwork, Payoneer, Wise, or banks. On invoices around $1,000, stacked platform + FX + intermediary fees often leave roughly $920–950 after several days. The worst band is $200–$5,000 — too small for efficient SWIFT, too frequent for traditional banking.
+## 2. Why onchain
 
-### 2. Why onchain
-Domestic VND payment is already solved by MoMo and VNPay. The broken piece is the **middle mile**: small, frequent, cross-border settlement. Solana + USDC optimizes for that shape of money: minutes instead of days, network fees in cents, global client reach, immutable on-chain receipts.
+Domestic VND is solved. Onchain is justified only for small, frequent, cross-border settlement: global reach, minute finality, low network cost, and immutable receipts. Limits we accept: client wallet friction, VND off-ramp, tax, and contracts remain hybrid Web2. We are not building crypto MoMo.
 
-**Honest limits:** off-ramp to VND, tax reporting, contracts, and disputes stay hybrid Web2. We do not claim onchain is better for paying coffee in Saigon.
+## 3. How it works
 
-### 3. How it works
-1. Freelancer/agency creates an invoice (USD amount + note).  
-2. Client opens Solana Pay link / QR and pays USDC.  
-3. Funds settle to the recipient wallet; status flips to Paid with tx receipt.  
-4. Agencies can batch-split to team wallets. Optional licensed off-ramp later for VND.
+Invoice-first UX → Solana Pay / USDC → settlement + receipt → optional agency batch split → optional licensed off-ramp. Layers: invoices, team treasury, book exports, partner cash-out. Demo: https://ikihin.github.io/SenPay/#demo
 
-### 4. What’s next
-- Interview 10 freelancers/agencies on real fee % and client willingness.  
-- Ship Devnet Solana Pay happy path.  
-- Closed beta with 5 agencies (USDC-in only).  
-- Partner off-ramp + tax export fields.  
-- Regulatory posture: settlement tooling for services export — not a deposit-taking e-wallet.
+## 4. What’s next
 
-## Founder note (edit me)
-I am submitting as [your name / role]. I [do not yet run a registered agency / freelance / interviewed X people]. I know this pain because [personal line]. Prototype and deck are ready; I want a working session on GTM and compliance fit for Vietnam.
+15 operator interviews + 3 design partners → real Solana pay links → closed beta (USDC-in) → off-ramp LOI + tax export. North star: repeat invoices per agency per month. Posture: services-export settlement tool, not deposit-taking e-wallet.
 
-## Languages
-Deck and prototype UI: English (can add Vietnamese copy on request).
+## Concept pillars
+
+| Pillar | Choice |
+|--------|--------|
+| Category | Middle-mile settlement for services export |
+| ICP | VN digital agencies + senior freelancers |
+| Wedge | Agency batch split (monthly retention) |
+| Asset | USDC on Solana (no new token) |
+| Not doing | Domestic P2P, remittance app, yield |
+| Monetize | SaaS + tiny settle fee + partner off-ramp share |

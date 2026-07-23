@@ -1,4 +1,8 @@
-/* SEN — single-site navigation: home · pitch · demo · submit */
+/* SEN — matured concept SPA: home · pitch (4) · demo · bounty notes */
+
+const PITCH_TOTAL = 4;
+const LEGACY_RATE = 0.08; // illustrative stacked fee
+const SEN_RATE = 0.005; // illustrative settle leg
 
 const state = {
   view: "home",
@@ -6,12 +10,36 @@ const state = {
   invoiceId: "SEN-1042",
   client: "Northwind Labs",
   amount: 1000,
-  note: "Brand site redesign — milestone 2",
+  note: "Brand site redesign — milestone 2 (accepted in Figma review)",
   paid: false,
 };
 
 function $(id) {
   return document.getElementById(id);
+}
+
+function money(n) {
+  return (
+    "$" +
+    Number(n).toLocaleString("en-US", {
+      minimumFractionDigits: n % 1 === 0 ? 0 : 2,
+      maximumFractionDigits: 2,
+    })
+  );
+}
+
+function estimate(amount) {
+  const a = Math.max(0, Number(amount) || 0);
+  const legacyLost = a * LEGACY_RATE;
+  const senLost = a * SEN_RATE;
+  return {
+    amount: a,
+    legacyNet: a - legacyLost,
+    senNet: a - senLost,
+    legacyLost,
+    senLost,
+    saved: legacyLost - senLost,
+  };
 }
 
 function toast(msg) {
@@ -39,9 +67,6 @@ function go(view) {
   });
 
   if (view === "pitch") updatePitchUI();
-  if (view === "demo") {
-    /* keep last panel */
-  }
 
   history.replaceState(null, "", "#" + view);
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -69,7 +94,7 @@ function showPanel(name) {
 }
 
 function setPitchPage(n) {
-  state.pitchPage = n < 1 ? 1 : n > 2 ? 2 : n;
+  state.pitchPage = Math.min(PITCH_TOTAL, Math.max(1, n));
   updatePitchUI();
 }
 
@@ -79,38 +104,92 @@ function updatePitchUI() {
     s.classList.toggle("active", num === state.pitchPage);
   });
   const ind = $("pitch-indicator");
-  if (ind) ind.textContent = state.pitchPage + " / 2";
+  if (ind) ind.textContent = state.pitchPage + " / " + PITCH_TOTAL;
   const prev = $("pitch-prev");
   const next = $("pitch-next");
   if (prev) prev.disabled = state.pitchPage <= 1;
-  if (next) next.disabled = state.pitchPage >= 2;
+  if (next) next.disabled = state.pitchPage >= PITCH_TOTAL;
+}
+
+function updateFeeCalculator() {
+  const range = $("fee-range");
+  if (!range) return;
+  const e = estimate(range.value);
+  const set = (id, text) => {
+    const n = $(id);
+    if (n) n.textContent = text;
+  };
+  set("fee-amount-label", money(e.amount));
+  set("fee-legacy-net", "~" + money(e.legacyNet));
+  set(
+    "fee-legacy-detail",
+    "~" + money(e.legacyLost) + " lost · ~5 days"
+  );
+  set("fee-sen-net", "~" + money(e.senNet));
+  set(
+    "fee-sen-detail",
+    "~" + money(e.senLost) + " all-in leg · minutes"
+  );
+  set("fee-saved", "+" + money(e.saved));
 }
 
 function syncPayView() {
+  const e = estimate(state.amount);
   const amt = $("pay-amount");
   const meta = $("pay-meta");
   const status = $("pay-status");
+  const hint = $("pay-save-hint");
+
   if (amt) {
-    amt.textContent =
-      "$" + Number(state.amount).toLocaleString("en-US", { minimumFractionDigits: 2 });
+    amt.textContent = money(state.amount).replace(/\.00$/, "") + (state.amount % 1 ? "" : ".00");
+    if (!String(state.amount).includes(".")) {
+      amt.textContent =
+        "$" +
+        Number(state.amount).toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+    }
   }
   if (meta) {
     meta.textContent = `Invoice ${state.invoiceId} · ${state.note || "Services"}`;
   }
   if (status) {
     if (state.paid) {
-      status.textContent = "PAID";
+      status.textContent = "SETTLED";
       status.className = "badge badge-paid";
     } else {
-      status.textContent = "Awaiting payment";
+      status.textContent = "Awaiting settlement";
       status.className = "badge badge-open";
     }
+  }
+  if (hint) {
+    hint.textContent =
+      "Illustrative vendor keep vs ~8% stack: +" +
+      money(e.saved) +
+      " on this invoice";
   }
 }
 
 function syncReceipt() {
+  const e = estimate(state.amount);
   const rc = $("rc-id");
+  const client = $("rc-client");
+  const title = $("success-title");
+  const save = $("success-save");
+
   if (rc) rc.textContent = state.invoiceId;
+  if (client) client.textContent = state.client;
+  if (title) {
+    title.textContent =
+      Number(state.amount).toLocaleString("en-US") + " USDC settled";
+  }
+  if (save) {
+    save.innerHTML =
+      "Est. kept vs legacy stack on this invoice: <strong>+" +
+      money(e.saved) +
+      "</strong>";
+  }
 }
 
 function createInvoice() {
@@ -125,7 +204,7 @@ function createInvoice() {
   state.invoiceId = "SEN-" + n;
   state.paid = false;
 
-  toast("Invoice " + state.invoiceId + " created");
+  toast("Invoice " + state.invoiceId + " ready for client");
   showPanel("pay");
 }
 
@@ -145,7 +224,7 @@ function simulatePay() {
       btn.disabled = false;
       btn.textContent = "Simulate client payment";
     }
-    toast("Payment confirmed · demo tx");
+    toast("Settlement confirmed · demo receipt");
     showPanel("success");
   }, 900);
 }
@@ -161,51 +240,50 @@ function copyAddr() {
 }
 
 function copyNotes() {
+  const grab = (id) => {
+    const el = $(id);
+    return el ? el.textContent.trim() : "";
+  };
   const text = [
-    "SEN — Superteam VN submission",
+    "SEN — Superteam Vietnam bounty (matured concept)",
+    "Live: https://ikihin.github.io/SenPay/",
     "",
     "One-liner:",
-    "Clients pay in USDC on Solana; freelancers and agencies in Vietnam keep more, faster — without replacing MoMo/VNPay for domestic payments.",
+    grab("note-oneliner"),
     "",
     "1. The business today:",
-    "Vietnam freelancers and small agencies export services to US/EU/SG/AU. Money routes through Upwork, Payoneer, Wise, or banks. On ~$1,000 invoices, stacked fees often leave ~$920–950 after several days. Worst band: $200–$5,000.",
+    grab("note-business"),
     "",
     "2. Why onchain:",
-    "Domestic VND is solved by MoMo/VNPay. Broken middle mile: small cross-border settlement. Solana + USDC → minutes, low fees, global reach, on-chain receipts. Limits: off-ramp, tax, contracts stay Web2.",
+    grab("note-why"),
     "",
     "3. How it works:",
-    "Create invoice → client pays USDC via Solana Pay → wallet settles + receipt → optional agency batch split → optional licensed VND off-ramp later.",
+    grab("note-how"),
     "",
     "4. What’s next:",
-    "10 interviews → Devnet happy path → beta 5 agencies → off-ramp partner + tax export. Positioning: settlement tool for services export, not deposit-taking e-wallet.",
+    grab("note-next"),
     "",
-    "Prototype: this single website (Home + Pitch + Live demo).",
+    "Founder note:",
+    grab("founder-note"),
   ].join("\n");
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(() => toast("Notes copied to clipboard"));
+    navigator.clipboard.writeText(text).then(() => toast("Bounty notes copied"));
   } else {
-    toast("Copy manually from Submit notes page");
+    toast("Copy manually from Bounty notes page");
   }
 }
 
-// Event delegation
 document.addEventListener("click", (e) => {
   const goEl = e.target.closest("[data-go]");
   if (goEl) {
     e.preventDefault();
-    const view = goEl.getAttribute("data-go");
-    if (view === "demo" && goEl.hasAttribute("data-panel")) {
-      go("demo");
-      showPanel(goEl.getAttribute("data-panel"));
-      return;
-    }
-    go(view);
+    go(goEl.getAttribute("data-go"));
     return;
   }
 
   const panelEl = e.target.closest("[data-panel]");
-  if (panelEl && !panelEl.hasAttribute("data-go")) {
+  if (panelEl) {
     e.preventDefault();
     showPanel(panelEl.getAttribute("data-panel"));
   }
@@ -229,14 +307,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const batchBtn = $("btn-batch");
   if (batchBtn) {
     batchBtn.addEventListener("click", () => {
-      toast("Demo: batch payout would send multi-recipient Solana tx");
+      toast("Demo: multi-recipient Solana transfer for team split");
     });
   }
 
   const notesBtn = $("btn-copy-notes");
   if (notesBtn) notesBtn.addEventListener("click", copyNotes);
 
-  // Keyboard for pitch
+  const range = $("fee-range");
+  if (range) {
+    range.addEventListener("input", updateFeeCalculator);
+    updateFeeCalculator();
+  }
+
   document.addEventListener("keydown", (e) => {
     if (state.view !== "pitch") return;
     if (e.key === "ArrowRight" || e.key === "PageDown") setPitchPage(state.pitchPage + 1);
@@ -252,23 +335,3 @@ document.addEventListener("DOMContentLoaded", () => {
     go("home");
   }
 });
-
-// Legacy alias if anything still calls show()
-function show(name) {
-  const map = {
-    landing: "home",
-    home: "home",
-    pitch: "pitch",
-    dashboard: "demo",
-    create: "demo",
-    pay: "demo",
-    success: "demo",
-    batch: "demo",
-    submit: "submit",
-  };
-  const view = map[name] || "home";
-  go(view);
-  if (["dashboard", "create", "pay", "success", "batch"].includes(name)) {
-    showPanel(name);
-  }
-}
