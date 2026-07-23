@@ -246,7 +246,7 @@ function copyNotes() {
   };
   const text = [
     "ITRA — Superteam Vietnam bounty (matured concept)",
-    "Live: https://ikihin.github.io/SenPay/",
+    "Live: https://ikihin.github.io/ITRA/",
     "",
     "One-liner:",
     grab("note-oneliner"),

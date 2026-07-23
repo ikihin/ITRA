@@ -1,7 +1,7 @@
 ﻿# ITRA — Superteam VN submission (matured)
 
-**Live:** https://ikihin.github.io/SenPay/  
-**Repo:** https://github.com/ikihin/SenPay
+**Live:** https://ikihin.github.io/ITRA/  
+**Repo:** https://github.com/ikihin/ITRA
 
 ## One-liner
 
@@ -17,7 +17,7 @@ Domestic VND is solved. Onchain is justified only for small, frequent, cross-bor
 
 ## 3. How it works
 
-Invoice-first UX → Solana Pay / USDC → settlement + receipt → optional agency batch split → optional licensed off-ramp. Layers: invoices, team treasury, book exports, partner cash-out. Demo: https://ikihin.github.io/SenPay/#demo
+Invoice-first UX → Solana Pay / USDC → settlement + receipt → optional agency batch split → optional licensed off-ramp. Layers: invoices, team treasury, book exports, partner cash-out. Demo: https://ikihin.github.io/ITRA/#demo
 
 ## 4. What’s next
 
