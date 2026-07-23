@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEN — One web · Pitch + Prototype · Superteam VN</title>
+  <meta name="description" content="SEN: cross-border USDC payout for Vietnam freelancers. Pitch deck and clickable MVP in one site." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+
+  <!-- ========== GLOBAL SHELL ========== -->
+  <header class="global-nav">
+    <div class="brand" data-go="home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="32" height="32">
+          <circle cx="20" cy="20" r="20" fill="#DA251D"/>
+          <polygon points="20,8 22.5,16.2 31,16.2 24.2,21.2 26.8,29.5 20,24.5 13.2,29.5 15.8,21.2 9,16.2 17.5,16.2" fill="#FFCD00"/>
+        </svg>
+      </span>
+      <div>
+        <div class="brand-name">SEN</div>
+        <div class="brand-tagline">Pitch + Prototype · one site</div>
+      </div>
+    </div>
+
+    <nav class="global-tabs" role="tablist">
+      <button type="button" class="tab active" data-go="home" role="tab">Home</button>
+      <button type="button" class="tab" data-go="pitch" role="tab">Pitch deck</button>
+      <button type="button" class="tab" data-go="demo" role="tab">Live demo</button>
+      <button type="button" class="tab" data-go="submit" role="tab">Submit notes</button>
+    </nav>
+
+    <div class="global-actions">
+      <button type="button" class="btn btn-ghost btn-sm" data-go="pitch">2 pages</button>
+      <button type="button" class="btn btn-gold btn-sm" data-go="demo">Open app →</button>
+    </div>
+  </header>
+
+  <!-- ========== HOME ========== -->
+  <section id="view-home" class="view active" data-view="home">
+    <main class="hero">
+      <div class="hero-copy">
+        <div class="pill">
+          <span class="pill-star">★</span>
+          Superteam Vietnam bounty · everything in one web
+        </div>
+        <h1>
+          Get paid from the world.<br />
+          <span class="gold-text">Keep more of it.</span>
+        </h1>
+        <p class="lede">
+          <strong>SEN</strong> is a cross-border settlement rail for Vietnam freelancers &amp; agencies.
+          Clients pay <strong>USDC on Solana</strong> — minutes, not days.
+          This single site holds the <strong>2-page pitch</strong> and the <strong>clickable MVP</strong>.
+        </p>
+        <div class="hero-cta">
+          <button type="button" class="btn btn-red btn-lg" data-go="pitch">Read pitch deck</button>
+          <button type="button" class="btn btn-outline btn-lg" data-go="demo">Try live demo</button>
+        </div>
+        <div class="trust-row">
+          <div><strong>2</strong><span>pitch pages in-browser</span></div>
+          <div><strong>1</strong><span>clickable product flow</span></div>
+          <div><strong>VN</strong><span>red · gold · star · lotus</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="mini-header">
+              <span>Invoice #SEN-1042</span>
+              <span class="badge badge-paid">PAID</span>
+            </div>
+            <div class="mini-amount">$1,000.00</div>
+            <div class="mini-sub">≈ 1,000 USDC · Solana</div>
+            <div class="compare-card">
+              <div class="cmp-row bad"><span>Legacy rails</span><span>~$920 in 5 days</span></div>
+              <div class="cmp-row good"><span>With SEN</span><span>~$995 in minutes</span></div>
+            </div>
+            <div class="lotus-deco" aria-hidden="true">❀</div>
+          </div>
+        </div>
+        <div class="float-chip chip-1">★ Pitch + demo</div>
+        <div class="float-chip chip-2">One link to submit</div>
+      </div>
+    </main>
+
+    <section class="section map-section">
+      <h2 class="section-title">What’s inside this site</h2>
+      <div class="map-grid">
+        <button type="button" class="map-card" data-go="pitch">
+          <span class="map-num">01</span>
+          <h3>Pitch deck</h3>
+          <p>Business today · Why onchain · How it works · What’s next — two full slides, web format.</p>
+          <span class="map-link">Open pitch →</span>
+        </button>
+        <button type="button" class="map-card" data-go="demo">
+          <span class="map-num">02</span>
+          <h3>Live demo</h3>
+          <p>Create invoice → client pays USDC → on-chain style receipt → agency batch split.</p>
+          <span class="map-link">Launch app →</span>
+        </button>
+        <button type="button" class="map-card" data-go="submit">
+          <span class="map-num">03</span>
+          <h3>Submit notes</h3>
+          <p>Eligibility, four required answers, founder note template for Superteam form.</p>
+          <span class="map-link">View notes →</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section section-red">
+      <h2 class="section-title light">Why onchain — <em>honestly</em></h2>
+      <p class="honest wide">
+        Domestic MoMo / VNPay already work for VND. SEN only targets the
+        <strong>middle mile</strong>: small cross-border invoices ($200–$5,000) where fees and delays destroy margin.
+        Off-ramp, tax, and contracts stay hybrid Web2.
+      </p>
+      <div class="hero-cta center">
+        <button type="button" class="btn btn-gold btn-lg" data-go="pitch">See full pitch →</button>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="brand compact">
+        <span class="brand-mark small">
+          <svg viewBox="0 0 40 40" width="28" height="28">
+            <circle cx="20" cy="20" r="20" fill="#DA251D"/>
+            <polygon points="20,8 22.5,16.2 31,16.2 24.2,21.2 26.8,29.5 20,24.5 13.2,29.5 15.8,21.2 9,16.2 17.5,16.2" fill="#FFCD00"/>
+          </svg>
+        </span>
+        <span>SEN · Superteam Vietnam · all-in-one web package</span>
+      </div>
+      <p>Demo only · not a licensed bank or e-wallet</p>
+    </footer>
+  </section>
+
+  <!-- ========== PITCH DECK (2 pages as web slides) ========== -->
+  <section id="view-pitch" class="view" data-view="pitch">
+    <div class="pitch-shell">
+      <div class="pitch-toolbar">
+        <div class="pitch-title">
+          <span class="eyebrow">Pitch deck · 2 pages</span>
+          <strong>SEN for Superteam VN</strong>
+        </div>
+        <div class="pitch-controls">
+          <button type="button" class="btn btn-ghost btn-sm" id="pitch-prev">← Prev</button>
+          <span class="pitch-indicator" id="pitch-indicator">1 / 2</span>
+          <button type="button" class="btn btn-ghost btn-sm" id="pitch-next">Next →</button>
+          <button type="button" class="btn btn-gold btn-sm" data-go="demo">Try demo</button>
+        </div>
+      </div>
+
+      <div class="pitch-stage">
+        <!-- SLIDE 1 -->
+        <article class="pitch-slide active" data-slide="1">
+          <div class="ps-rail" aria-hidden="true"></div>
+          <header class="ps-top">
+            <span class="ps-star">★</span>
+            <span class="ps-brand">SEN</span>
+            <span class="ps-meta">Superteam VN · Solana · Freelancer / agency cross-border payout</span>
+          </header>
+          <h2 class="ps-headline">Get paid from the world. Keep more of it.</h2>
+          <p class="ps-sub">Onchain settlement rail for Vietnam freelancers &amp; agencies — not a domestic MoMo clone.</p>
+
+          <div class="ps-grid-2">
+            <div class="ps-card">
+              <h3>01 · The business today</h3>
+              <p><strong>Who:</strong> VN freelancers &amp; small agencies paid by US / EU / SG / AU clients.</p>
+              <p><strong>Flow:</strong> Client → Upwork / Payoneer / Wise / bank → fee + FX + hold → VND.</p>
+              <p><strong>Pain:</strong> On ~$1,000 invoices, stacked fees often leave ~$920–950 after days. Worst band: <strong>$200–$5,000</strong>.</p>
+            </div>
+            <div class="ps-card ps-card-red">
+              <h3>02 · Why onchain</h3>
+              <p>Domestic VND rails already work. The broken middle mile is <strong>small cross-border settlement</strong>.</p>
+              <ul>
+                <li>USDC on Solana: minutes, cents-level fees</li>
+                <li>Global client pay without correspondent stack</li>
+                <li>On-chain tx = immutable receipt</li>
+                <li><em>Limit:</em> VND off-ramp, tax, contracts stay Web2</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ps-metrics">
+            <div><span>Legacy on $1k</span><strong>~$50–80 fees · 2–7 days</strong></div>
+            <div><span>SEN target</span><strong>&lt;1% settle leg · minutes</strong></div>
+            <div><span>Asset</span><strong>USDC (no new token)</strong></div>
+            <div><span>Scope</span><strong>Services export, not P2P</strong></div>
+          </div>
+          <footer class="ps-foot">Page 1 / 2 · ★ Vietnam-first · English &amp; Vietnamese welcome</footer>
+        </article>
+
+        <!-- SLIDE 2 -->
+        <article class="pitch-slide" data-slide="2">
+          <div class="ps-rail" aria-hidden="true"></div>
+          <header class="ps-top">
+            <span class="ps-star">★</span>
+            <span class="ps-brand">SEN</span>
+            <span class="ps-meta">How it works · What’s next</span>
+          </header>
+          <h2 class="ps-headline sm">From invoice to team split</h2>
+
+          <div class="ps-steps">
+            <div class="ps-step"><span>1</span><h4>Create invoice</h4><p>USD amount, client, note → Solana Pay link + QR</p></div>
+            <div class="ps-step"><span>2</span><h4>Client pays USDC</h4><p>Any wallet / country. No SWIFT stack</p></div>
+            <div class="ps-step"><span>3</span><h4>You receive</h4><p>Wallet credit + on-chain receipt</p></div>
+            <div class="ps-step accent"><span>4</span><h4>Optional</h4><p>Hold · batch split · later VND off-ramp</p></div>
+          </div>
+
+          <div class="ps-grid-2">
+            <div class="ps-card">
+              <h3>03 · MVP (this site)</h3>
+              <ul class="plain">
+                <li>Home — problem &amp; positioning</li>
+                <li>Pitch — 2 interactive slides</li>
+                <li>Demo — invoice → pay → receipt → batch</li>
+                <li>Submit notes — form copy ready</li>
+              </ul>
+              <button type="button" class="btn btn-red btn-sm" data-go="demo" style="margin-top:0.75rem">Open live demo →</button>
+            </div>
+            <div class="ps-card ps-card-deep">
+              <h3>04 · What’s next</h3>
+              <p><strong>Tomorrow:</strong> 10 interviews (fee % / days / readiness)</p>
+              <p><strong>Week 1–2:</strong> Devnet Solana Pay happy path</p>
+              <p><strong>Month 1:</strong> Closed beta · 5 agencies · USDC-in</p>
+              <p><strong>Month 2–3:</strong> Licensed off-ramp + tax export</p>
+              <p class="gold-line"><strong>Reg:</strong> settlement tool, not deposit-taking e-wallet</p>
+            </div>
+          </div>
+          <footer class="ps-foot bar">★ SEN · Lotus mark of rising value · Built for Vietnam operators exporting services · Page 2 / 2</footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LIVE DEMO APP ========== -->
+  <section id="view-demo" class="view" data-view="demo">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand side-brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 40 40" width="32" height="32">
+              <circle cx="20" cy="20" r="20" fill="#DA251D"/>
+              <polygon points="20,8 22.5,16.2 31,16.2 24.2,21.2 26.8,29.5 20,24.5 13.2,29.5 15.8,21.2 9,16.2 17.5,16.2" fill="#FFCD00"/>
+            </svg>
+          </span>
+          <div>
+            <div class="brand-name light">SEN App</div>
+            <div class="brand-tag">Live demo · Devnet style</div>
+          </div>
+        </div>
+        <nav class="side-nav">
+          <button type="button" class="side-link active" data-panel="dashboard">Dashboard</button>
+          <button type="button" class="side-link" data-panel="create">Create invoice</button>
+          <button type="button" class="side-link" data-panel="pay">Client pay link</button>
+          <button type="button" class="side-link" data-panel="success">Payment receipt</button>
+          <button type="button" class="side-link" data-panel="batch">Batch payout</button>
+        </nav>
+        <div class="side-foot">
+          <div class="wallet-pill"><span class="dot"></span> Demo wallet · no real funds</div>
+          <button type="button" class="btn btn-ghost btn-sm" data-go="pitch">← Back to pitch</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-go="home">Home</button>
+        </div>
+      </aside>
+
+      <div class="app-main">
+        <div id="panel-dashboard" class="panel active">
+          <header class="panel-head">
+            <div>
+              <p class="eyebrow">Xin chào · Overview</p>
+              <h2>Your earnings rail</h2>
+            </div>
+            <button type="button" class="btn btn-red" data-panel="create">+ New invoice</button>
+          </header>
+          <div class="stat-grid">
+            <div class="stat-card"><span class="stat-label">Received (30d)</span><span class="stat-value">$12,480</span><span class="stat-hint gold-text">USDC on Solana</span></div>
+            <div class="stat-card"><span class="stat-label">vs legacy estimate</span><span class="stat-value">+$748</span><span class="stat-hint">kept from fees</span></div>
+            <div class="stat-card"><span class="stat-label">Open invoices</span><span class="stat-value">3</span><span class="stat-hint">$2,150 pending</span></div>
+            <div class="stat-card accent"><span class="stat-label">Settlement</span><span class="stat-value">~min</span><span class="stat-hint">not T+5 banking</span></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Recent invoices</h3><span class="badge">Prototype data</span></div>
+            <table class="data-table">
+              <thead><tr><th>ID</th><th>Client</th><th>Amount</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>SEN-1042</td><td>Northwind Labs (US)</td><td>$1,000</td><td><span class="badge badge-paid">Paid</span></td><td><button type="button" class="linkish" data-panel="success">Receipt</button></td></tr>
+                <tr><td>SEN-1041</td><td>Orbit Studio (SG)</td><td>$650</td><td><span class="badge badge-open">Open</span></td><td><button type="button" class="linkish" data-panel="pay">Pay link</button></td></tr>
+                <tr><td>SEN-1040</td><td>Berlin Content Co.</td><td>$2,200</td><td><span class="badge badge-paid">Paid</span></td><td><button type="button" class="linkish" data-panel="success">Receipt</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="panel-create" class="panel">
+          <header class="panel-head">
+            <div><p class="eyebrow">Step 01</p><h2>Create invoice</h2></div>
+          </header>
+          <div class="card form-card">
+            <label>Client name<input id="f-client" type="text" value="Northwind Labs" /></label>
+            <label>Client email<input id="f-email" type="email" value="ap@northwind.example" /></label>
+            <div class="form-row">
+              <label>Amount (USD)<input id="f-amount" type="number" value="1000" min="1" /></label>
+              <label>Currency settle
+                <select id="f-currency"><option selected>USDC on Solana</option><option disabled>USDT (later)</option></select>
+              </label>
+            </div>
+            <label>Note / deliverable<textarea id="f-note" rows="3">Brand site redesign — milestone 2</textarea></label>
+            <div class="form-actions">
+              <button type="button" class="btn btn-red btn-lg" id="btn-create">Generate pay link →</button>
+              <p class="form-hint">Demo only — no real chain tx.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-pay" class="panel">
+          <header class="panel-head">
+            <div><p class="eyebrow">Client view · Step 02</p><h2>Pay invoice</h2></div>
+            <span class="badge badge-open" id="pay-status">Awaiting payment</span>
+          </header>
+          <div class="pay-layout">
+            <div class="card pay-summary">
+              <div class="pay-brand">
+                <span class="lotus">❀</span>
+                <div><strong>SEN · Linh Nguyen Design</strong><p>Ho Chi Minh City · Vietnam</p></div>
+              </div>
+              <div class="pay-amount" id="pay-amount">$1,000.00</div>
+              <p class="pay-meta" id="pay-meta">Invoice SEN-1042 · Brand site redesign — milestone 2</p>
+              <ul class="pay-bullets">
+                <li>Settles in <strong>USDC</strong> on <strong>Solana</strong></li>
+                <li>Typical network fee: fractions of a cent</li>
+                <li>On-chain receipt automatically</li>
+              </ul>
+            </div>
+            <div class="card pay-action">
+              <div class="qr-box" aria-hidden="true">
+                <div class="qr-inner"><div class="qr-grid"></div><div class="qr-center">★</div></div>
+                <p>Solana Pay QR</p>
+              </div>
+              <label class="mono-label">Pay to (demo address)
+                <code class="addr" id="pay-addr">SenVNdemo1111111111111111111111111111Pay</code>
+              </label>
+              <div class="form-actions col">
+                <button type="button" class="btn btn-gold btn-lg" id="btn-sim-pay">Simulate client payment</button>
+                <button type="button" class="btn btn-outline" id="btn-copy">Copy address</button>
+              </div>
+              <p class="form-hint">Production: Phantom / Solflare / Solana Pay.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-success" class="panel">
+          <header class="panel-head">
+            <div><p class="eyebrow">Step 03</p><h2>Payment received</h2></div>
+            <span class="badge badge-paid">PAID</span>
+          </header>
+          <div class="success-hero card">
+            <div class="success-star">★</div>
+            <h3>1,000 USDC settled</h3>
+            <p>Faster than correspondent banking. Receipt lives on Solana.</p>
+            <div class="receipt-grid">
+              <div><span>Invoice</span><strong id="rc-id">SEN-1042</strong></div>
+              <div><span>From</span><strong>Northwind Labs</strong></div>
+              <div><span>Network</span><strong>Solana</strong></div>
+              <div><span>Asset</span><strong>USDC</strong></div>
+              <div><span>Tx (demo)</span><strong class="mono">5Kx…9aQ2</strong></div>
+              <div><span>Time</span><strong>~12 seconds</strong></div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-red" data-panel="batch">Split to team →</button>
+              <button type="button" class="btn btn-outline" data-panel="dashboard">Back to dashboard</button>
+            </div>
+          </div>
+          <div class="card note-card">
+            <h4>Optional next: off-ramp to VND</h4>
+            <p>Hold USDC or use a licensed partner later for bank/MoMo cash-out. SEN is settlement tooling for services exports — not an e-wallet deposit product.</p>
+          </div>
+        </div>
+
+        <div id="panel-batch" class="panel">
+          <header class="panel-head">
+            <div><p class="eyebrow">Agency · What’s next</p><h2>Batch payout</h2></div>
+          </header>
+          <div class="card">
+            <p class="batch-intro">One client payment → split to designers, devs, PMs. Path from freelancer tool → fundable payroll rail for VN agencies.</p>
+            <table class="data-table">
+              <thead><tr><th>Member</th><th>Role</th><th>Wallet</th><th>Amount</th></tr></thead>
+              <tbody>
+                <tr><td>Linh N.</td><td>Lead design</td><td class="mono">Lin…x7</td><td>400 USDC</td></tr>
+                <tr><td>Minh T.</td><td>Frontend</td><td class="mono">Min…k2</td><td>350 USDC</td></tr>
+                <tr><td>Agency reserve</td><td>Treasury</td><td class="mono">Sen…Hq</td><td>250 USDC</td></tr>
+              </tbody>
+            </table>
+            <div class="form-actions">
+              <button type="button" class="btn btn-gold btn-lg" id="btn-batch">Send batch (demo)</button>
+              <button type="button" class="btn btn-outline" data-panel="dashboard">Done</button>
+              <button type="button" class="btn btn-ghost" data-go="submit">Submit notes →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUBMIT NOTES ========== -->
+  <section id="view-submit" class="view" data-view="submit">
+    <div class="submit-wrap">
+      <header class="panel-head">
+        <div>
+          <p class="eyebrow">Bounty form helper</p>
+          <h2>Submission notes</h2>
+        </div>
+        <button type="button" class="btn btn-red" data-go="demo">Back to demo</button>
+      </header>
+
+      <div class="card">
+        <h3>One-liner</h3>
+        <p>Clients pay in USDC on Solana; freelancers and agencies in Vietnam keep more, faster — without replacing MoMo/VNPay for domestic payments.</p>
+      </div>
+
+      <div class="ps-grid-2">
+        <div class="card">
+          <h3>1. The business today</h3>
+          <p>Vietnam freelancers and small agencies export services to US/EU/SG/AU. Money routes through Upwork, Payoneer, Wise, or banks. On ~$1,000 invoices, stacked fees often leave ~$920–950 after several days. Worst band: $200–$5,000.</p>
+        </div>
+        <div class="card">
+          <h3>2. Why onchain</h3>
+          <p>Domestic VND is solved. Broken middle mile: small cross-border settlement. Solana + USDC → minutes, low fees, global reach, on-chain receipts. Limits: off-ramp, tax, contracts stay Web2.</p>
+        </div>
+        <div class="card">
+          <h3>3. How it works</h3>
+          <p>Create invoice → client pays USDC via Solana Pay → wallet settles + receipt → optional agency batch split → optional licensed VND off-ramp later.</p>
+        </div>
+        <div class="card">
+          <h3>4. What’s next</h3>
+          <p>10 interviews → Devnet happy path → beta 5 agencies → off-ramp partner + tax export. Positioning: settlement tool for services export, not deposit-taking e-wallet.</p>
+        </div>
+      </div>
+
+      <div class="card note-card">
+        <h4>Eligibility checklist</h4>
+        <ul class="check-list">
+          <li>Vietnamese citizen or Vietnam-based resident</li>
+          <li>Can provide ID / residence proof if selected</li>
+          <li>Link this site as pitch + prototype (one URL)</li>
+        </ul>
+        <h4 style="margin-top:1rem">Founder note (edit before submit)</h4>
+        <p id="founder-note">I am submitting as [your name / role]. I [freelance / interviewed X people / …]. I know this pain because [personal line]. This single web app is the pitch deck and MVP. I want a working session on GTM and Vietnam compliance fit.</p>
+        <div class="form-actions" style="margin-top:1rem">
+          <button type="button" class="btn btn-gold" id="btn-copy-notes">Copy all notes</button>
+          <button type="button" class="btn btn-outline" data-go="home">Home</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

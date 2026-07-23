@@ -1,71 +1,68 @@
-# SEN — Cross-border payout for Vietnam
+# SEN — all-in-one web
 
-**Superteam Vietnam bounty package**  
-Freelancer / agency cross-border settlement on Solana (USDC).
+**Superteam Vietnam bounty**  
+Cross-border USDC payout for Vietnam freelancers & agencies.
 
-Visual identity: **Vietnam flag red + gold**, lotus/star motifs, modern fintech (not kitschy folk).
+Everything lives in **one website** (no separate deck required to present):
 
----
+| Tab | Content |
+|-----|---------|
+| **Home** | Positioning, problem, site map |
+| **Pitch deck** | Full 2-page pitch (Prev/Next, arrow keys) |
+| **Live demo** | Invoice → pay → receipt → agency batch |
+| **Submit notes** | Copy-ready text for the bounty form |
 
-## What’s in this folder
-
-| Path | What |
-|------|------|
-| `prototype/index.html` | **Clickable MVP** — landing + app (invoice → pay → receipt → batch) |
-| `prototype/styles.css` | Red/gold design system |
-| `prototype/app.js` | Multi-screen navigation (demo only, no backend) |
-| `deck/SEN-Pitch-Deck-2pages.pptx` | **2-page pitch deck** for submission |
-| `deck/create-deck.js` | Regenerates the PPTX |
-| `SUBMISSION.md` | Copy-paste notes for the bounty form |
+Visual: Vietnam flag **red + gold**, star + lotus motifs.
 
 ---
 
-## Open the prototype
+## Open
 
-1. Open in browser (double-click or):
+Double-click or:
 
 ```powershell
-start C:\Users\rizki\SenPay\prototype\index.html
+start C:\Users\rizki\SenPay\index.html
 ```
 
-2. Click through:
-   - **Landing** → problem + why onchain
-   - **Open app** → dashboard
-   - **Create invoice** → **Client pay link** → **Simulate payment** → receipt
-   - **Batch payout** → agency split
-
-No install required. Demo only — no real Solana transactions.
-
----
-
-## Rebuild the deck
+Or with a local server:
 
 ```powershell
-cd C:\Users\rizki\SenPay\deck
-npm install pptxgenjs
-node create-deck.js
+cd C:\Users\rizki\SenPay
+npx --yes serve .
 ```
 
-Output: `SEN-Pitch-Deck-2pages.pptx`
+Deep links:
+
+- `index.html#home`
+- `index.html#pitch`
+- `index.html#demo`
+- `index.html#submit`
 
 ---
 
-## Product one-liner
+## Files that matter
 
-> Get paid from the world. Keep more of it.  
-> USDC on Solana for Vietnam freelancers & agencies — middle-mile cross-border settlement, not a MoMo replacement.
+```
+SenPay/
+  index.html      ← main SPA
+  styles.css
+  app.js
+  README.md
+  SUBMISSION.md
+  deck/           ← optional PPTX export (same content as Pitch tab)
+  prototype/      ← redirects to #demo
+```
 
 ---
 
-## Eligibility reminder
+## Submit with one link
 
-Bounty is for **Vietnamese citizens / Vietnam-based residents** only. Verify ID/residence if you win.
+Host this folder (Netlify / Vercel / GitHub Pages) and paste **one URL** as pitch + prototype.
+
+Optional PPTX still at `deck/SEN-Pitch-Deck-2pages.pptx` if a file upload is required.
 
 ---
 
-## Customize before submit
+## Eligibility
 
-1. Replace demo founder name / story with **your real** experience or interviews.
-2. Add 3–5 real fee screenshots if you have them.
-3. Put your name + contact on the deck footer.
-4. Optional: host `prototype/` on Vercel/Netlify and paste the URL.
+Vietnamese citizens / Vietnam-based residents only (verify if you win).
