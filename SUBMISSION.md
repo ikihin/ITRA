@@ -1,11 +1,11 @@
-# SEN — Superteam VN submission (matured)
+﻿# ITRA — Superteam VN submission (matured)
 
 **Live:** https://ikihin.github.io/SenPay/  
 **Repo:** https://github.com/ikihin/SenPay
 
 ## One-liner
 
-SEN is the middle-mile settlement rail for Vietnam freelancers and agencies exporting services: clients pay USDC on Solana; teams settle in minutes with on-chain receipts — without replacing MoMo/VNPay for domestic VND.
+ITRA (chi trả) is the middle-mile cross-border payout rail for Vietnam freelancers and agencies exporting services: clients pay USDC on Solana; teams settle in minutes with on-chain receipts — without replacing MoMo/VNPay for domestic VND.
 
 ## 1. The business today
 

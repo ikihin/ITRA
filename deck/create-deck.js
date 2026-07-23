@@ -1,5 +1,5 @@
-/**
- * SEN — 2-page Superteam Vietnam bounty pitch deck
+﻿/**
+ * ITRA — 2-page Superteam Vietnam bounty pitch deck
  * Colors: Vietnam flag red + gold, cream paper
  */
 const pptxgen = require("pptxgenjs");
@@ -16,8 +16,8 @@ const WHITE = "FFFFFF";
 async function main() {
   const pres = new pptxgen();
   pres.layout = "LAYOUT_16x9";
-  pres.author = "SEN";
-  pres.title = "SEN — Cross-border payout for Vietnam freelancers";
+  pres.author = "ITRA";
+  pres.title = "ITRA — Cross-border payout for Vietnam freelancers";
   pres.subject = "Superteam Vietnam bounty submission";
 
   // ========== SLIDE 1 ==========
@@ -52,7 +52,7 @@ async function main() {
     fontFace: "Arial",
   });
 
-  s1.addText("SEN", {
+  s1.addText("ITRA", {
     x: 0.95, y: 0.42, w: 1.2, h: 0.38,
     fontSize: 20, bold: true, color: RED, fontFace: "Arial",
     valign: "middle", charSpacing: 4,
@@ -149,7 +149,7 @@ async function main() {
 
   const metrics = [
     { t: "Legacy on $1k", s: "~$50–80 fees\n+ 2–7 days" },
-    { t: "SEN target", s: "<1% settle leg\n+ minutes" },
+    { t: "ITRA target", s: "<1% settle leg\n+ minutes" },
     { t: "Asset", s: "USDC\n(not a new token)" },
     { t: "Scope", s: "Export of services\nnot domestic P2P" },
   ];
@@ -193,7 +193,7 @@ async function main() {
     fill: { color: GOLD },
   });
 
-  s2.addText("SEN", {
+  s2.addText("ITRA", {
     x: 0.45, y: 0.42, w: 1.0, h: 0.32,
     fontSize: 16, bold: true, color: RED, fontFace: "Arial", charSpacing: 3,
   });
@@ -288,12 +288,12 @@ async function main() {
     fill: { color: RED },
     rectRadius: 0.06,
   });
-  s2.addText("★  SEN  ·  Lotus mark of rising value  ·  Built for Vietnam operators exporting services  ·  Page 2/2", {
+  s2.addText("★  ITRA  ·  Chi trả xuyên biên giới  ·  Built for Vietnam operators exporting services  ·  Page 2/2", {
     x: 0.5, y: 4.95, w: 9.05, h: 0.42,
     fontSize: 11, color: GOLD, fontFace: "Arial", align: "center", valign: "middle",
   });
 
-  const out = require("path").join(__dirname, "SEN-Pitch-Deck-2pages.pptx");
+  const out = require("path").join(__dirname, "ITRA-Pitch-Deck-2pages.pptx");
   await pres.writeFile({ fileName: out });
   console.log("Wrote", out);
 }

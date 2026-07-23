@@ -1,4 +1,4 @@
-import fs from "fs";
+﻿import fs from "fs";
 
 const html = fs.readFileSync("index.html", "utf8");
 const js = fs.readFileSync("app.js", "utf8");

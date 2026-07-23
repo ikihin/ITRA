@@ -1,13 +1,13 @@
-/* SEN — matured concept SPA: home · pitch (4) · demo · bounty notes */
+﻿/* ITRA — matured concept SPA: home · pitch (4) · demo · bounty notes */
 
 const PITCH_TOTAL = 4;
 const LEGACY_RATE = 0.08; // illustrative stacked fee
-const SEN_RATE = 0.005; // illustrative settle leg
+const ITRA_RATE = 0.005; // illustrative settle leg
 
 const state = {
   view: "home",
   pitchPage: 1,
-  invoiceId: "SEN-1042",
+  invoiceId: "ITRA-1042",
   client: "Northwind Labs",
   amount: 1000,
   note: "Brand site redesign — milestone 2 (accepted in Figma review)",
@@ -31,14 +31,14 @@ function money(n) {
 function estimate(amount) {
   const a = Math.max(0, Number(amount) || 0);
   const legacyLost = a * LEGACY_RATE;
-  const senLost = a * SEN_RATE;
+  const itraLost = a * ITRA_RATE;
   return {
     amount: a,
     legacyNet: a - legacyLost,
-    senNet: a - senLost,
+    itraNet: a - itraLost,
     legacyLost,
-    senLost,
-    saved: legacyLost - senLost,
+    itraLost,
+    saved: legacyLost - itraLost,
   };
 }
 
@@ -125,10 +125,10 @@ function updateFeeCalculator() {
     "fee-legacy-detail",
     "~" + money(e.legacyLost) + " lost · ~5 days"
   );
-  set("fee-sen-net", "~" + money(e.senNet));
+  set("fee-itra-net", "~" + money(e.itraNet));
   set(
-    "fee-sen-detail",
-    "~" + money(e.senLost) + " all-in leg · minutes"
+    "fee-itra-detail",
+    "~" + money(e.itraLost) + " all-in leg · minutes"
   );
   set("fee-saved", "+" + money(e.saved));
 }
@@ -201,7 +201,7 @@ function createInvoice() {
   state.client = client;
   state.amount = amount;
   state.note = note;
-  state.invoiceId = "SEN-" + n;
+  state.invoiceId = "ITRA-" + n;
   state.paid = false;
 
   toast("Invoice " + state.invoiceId + " ready for client");
@@ -245,7 +245,7 @@ function copyNotes() {
     return el ? el.textContent.trim() : "";
   };
   const text = [
-    "SEN — Superteam Vietnam bounty (matured concept)",
+    "ITRA — Superteam Vietnam bounty (matured concept)",
     "Live: https://ikihin.github.io/SenPay/",
     "",
     "One-liner:",

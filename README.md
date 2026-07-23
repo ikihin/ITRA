@@ -1,68 +1,32 @@
-# SEN — all-in-one web
+# ITRA — Chi trả xuyên biên giới
 
 **Superteam Vietnam bounty**  
-Cross-border USDC payout for Vietnam freelancers & agencies.
-
-Everything lives in **one website** (no separate deck required to present):
+Cross-border **payout / chi trả** for Vietnam freelancers & agencies (USDC on Solana).
 
 | Tab | Content |
 |-----|---------|
-| **Home** | Positioning, problem, site map |
-| **Pitch deck** | Full 2-page pitch (Prev/Next, arrow keys) |
-| **Live demo** | Invoice → pay → receipt → agency batch |
-| **Submit notes** | Copy-ready text for the bounty form |
+| **Home** | Thesis, ICP, fee calculator |
+| **Pitch** | 4 thesis slides |
+| **Product demo** | Invoice → pay → receipt → batch |
+| **Bounty notes** | Copy-ready Superteam answers |
 
-Visual: Vietnam flag **red + gold**, star + lotus motifs.
+Brand: **ITRA** · meaning **chi trả** (pay / payout) for services export.
+
+Visual: Vietnam flag red + gold, star + lotus.
 
 ---
 
-## Open
+## Live
 
-Double-click or:
+https://ikihin.github.io/SenPay/
+
+## Open local
 
 ```powershell
 start C:\Users\rizki\SenPay\index.html
 ```
 
-Or with a local server:
+## Repo
 
-```powershell
-cd C:\Users\rizki\SenPay
-npx --yes serve .
-```
-
-Deep links:
-
-- `index.html#home`
-- `index.html#pitch`
-- `index.html#demo`
-- `index.html#submit`
-
----
-
-## Files that matter
-
-```
-SenPay/
-  index.html      ← main SPA
-  styles.css
-  app.js
-  README.md
-  SUBMISSION.md
-  deck/           ← optional PPTX export (same content as Pitch tab)
-  prototype/      ← redirects to #demo
-```
-
----
-
-## Submit with one link
-
-Host this folder (Netlify / Vercel / GitHub Pages) and paste **one URL** as pitch + prototype.
-
-Optional PPTX still at `deck/SEN-Pitch-Deck-2pages.pptx` if a file upload is required.
-
----
-
-## Eligibility
-
-Vietnamese citizens / Vietnam-based residents only (verify if you win).
+https://github.com/ikihin/SenPay  
+(folder name is historical; product brand is **ITRA**)

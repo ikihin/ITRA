@@ -1,4 +1,4 @@
-/* SEN — all-in-one web: home + pitch + demo · Vietnam red/gold */
+/* ITRA — all-in-one web: home + pitch + demo · Vietnam red/gold · chi trả */
 :root {
   --red: #DA251D;
   --red-deep: #A71B15;
@@ -427,7 +427,7 @@ body {
   background: var(--cream);
 }
 .calc-col.legacy { background: #fff5f5; }
-.calc-col.sen { background: var(--gold-soft); }
+.calc-col.itra { background: var(--gold-soft); }
 .calc-col.save {
   background: linear-gradient(145deg, var(--red), var(--red-deep));
   color: white;
@@ -447,7 +447,7 @@ body {
   font-size: 1.45rem;
   margin-bottom: 0.2rem;
 }
-.calc-col.sen strong { color: #6b5400; }
+.calc-col.itra strong { color: #6b5400; }
 .calc-col.save strong { color: var(--gold); }
 .calc-col span:last-child { font-size: 0.8rem; opacity: 0.9; }
 .calc-note {
